@@ -6,7 +6,7 @@ export const Header = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   color: white;
 `;
 
