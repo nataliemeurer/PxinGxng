@@ -22,8 +22,8 @@ export const Body = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 40vmin;
-  margin-bottom: 16px;
+  height: 35vmin;
+  margin-bottom: 8px;
   pointer-events: none;
 `;
 

@@ -23,6 +23,12 @@ code {
   height: 25%;
 }
 
+.welcome-widget {
+  text-align: center;
+  margin-top: -40px;
+  max-width: 70%;
+}
+
 .main-nav {
 	margin-top: 5px;
 
