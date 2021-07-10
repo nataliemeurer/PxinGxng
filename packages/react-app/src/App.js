@@ -38,15 +38,19 @@ function App() {
 
   return (
     <Router>
-        <header class="header">
-          <Link to="/"><span class="logo"><Image src={wideLogo} alt="react-logo" /></span></Link>
-          <ul class="main-nav">
+        <header className="header">
+          <Link to="/"><span className="logo"><Image src={wideLogo} alt="react-logo" /></span></Link>
+          <ul className="main-nav">
             <Link to="/about"><Button>About Ghxsts</Button></Link>
+            <Link to="/meme-pxin-practice"><Button>Meme Submission</Button></Link>
             {walletGhxsts != null ? <Link to="/ghxsts"><Button>View My Ghxsts</Button></Link> : <></>}
             <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
           </ul>
         </header> 
          <Switch>
+          <Route path="/meme-pxin-praxtice">
+            <About />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
