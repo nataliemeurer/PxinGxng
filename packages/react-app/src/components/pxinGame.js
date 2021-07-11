@@ -128,6 +128,7 @@ const GameScreen = ({ setGameStarted }) => {
                   }
                   className="big-button"
                   onClick={(ev) => {
+                    setDisplayContent(<div className="loader">Loading</div>)
                     setDisplayContent(handleOpenSea(setGameFields));
                   }}
                 >
@@ -169,7 +170,7 @@ const GameScreen = ({ setGameStarted }) => {
         case 2:
           return (
             <HeaderImage
-              header={"07CA bought more Ghxsts. Lots of new purchases in the secondary market, but no drop."}
+              header={"0x7CA bought more Ghxsts. Lots of new purchases in the secondary market, but no drop."}
               image={discord2}/>
           );
         case 3:
