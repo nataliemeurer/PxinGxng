@@ -11,6 +11,7 @@ import work1 from "../images/work1.png";
 import work2 from "../images/work2.png";
 import work3 from "../images/work3.png";
 import zxdiac from "../images/zxdiac.png";
+import zxdiacRaffle from "../images/zxdiacRaffle.png";
 
 const GAME_MOVES = 15;
 
@@ -32,10 +33,12 @@ const StartScreen = ({ setGameStarted }) => {
     <Body>
       <div className={"pxin-game-start-screen"}>
         <h1>Welcome to the Pxin Game.</h1>
-        <p style={{ textAlign: "left", fontStyle: "italix" }}>
+        <p style={{ textAlign: "left", fontStyle: "italic" }}>
           The goal of the Pxin Game is to grow your collection of Ghxsts through
-          buying them and winning drops. Ideally, you end up with as many Ghxsts
-          as possible.
+          buying them and winning drops.
+        </p>
+        <p style={{ textAlign: "left", fontStyle: "italic" }}>
+          <strong>Warning</strong>: you might not get much sleep, and you'll endure a lot of pxin.
         </p>
         <br></br>
         <button class="big-button" onClick={(e) => setGameStarted(true)}>
@@ -133,7 +136,7 @@ const GameScreen = ({ setGameStarted }) => {
       ) : (
         <GameOverScreen
           gameFields={gameFields}
-          setGameStarted={setGameStarted}
+          setGameFields={setGameFields}
           setMovesRemaining={setMovesRemaining}
         />
       )}
@@ -144,7 +147,7 @@ const GameScreen = ({ setGameStarted }) => {
     // we assume that it's a 90 percent
     // likelihood of it being a standard convo
     // 10% chance it's a drop.
-    if (Math.random() > 0.1) {
+    if (Math.random() > 0.2) {
       const randomNum = Math.ceil(Math.random() * 4);
       switch (randomNum) {
         case 1:
@@ -186,8 +189,43 @@ const GameScreen = ({ setGameStarted }) => {
       }
     } else {
       // select drop options
-      const randomNum = Math.random();
-      if (randomNum < 0.3) {
+      
+      const randomNum = Math.ceil(Math.random());
+      if (randomNum == 1) {
+        if (gameFields.zxdiacsCollected) {
+          if (Math.random() > .7) {
+            setGameFields(Object.assign(gameFields, {
+              ghxstsCollected: gameFields.ghxstsCollected + 1,
+            }));
+            return (<>
+              <h2>Zxdiac Raffle!</h2>
+              <small>You enter your Zxdiac and...you WIN! You get a Ghxst.</small>
+              <img src={zxdiacRaffle}></img>
+            </>
+          )
+          } else if (Math.random() > .5) {
+            setGameFields(Object.assign(gameFields, {
+              zxdiacsCollected: gameFields.zxdiacsCollected + 1,
+            }));
+            return (<>
+              <h2>Zxdiac Raffle!</h2>
+              <small>You enter your Zxdiac and...Sven O wins! Luckily, Sven is a Zxdiac collector and gifted a Zxdiac to someone for winning. You get it.</small>
+              <img src={zxdiacRaffle}></img>
+            </>)
+          } else {
+            return (<>
+              <h2>Zxdiac Raffle!</h2>
+              <small>You enter your Zxdiac and...you lose. Better luck next time</small>
+              <img src={zxdiacRaffle}></img>
+            </>)
+          }
+        }
+        return (<>
+            <h2>Zxdiac Raffle!</h2>
+            <small>Unfortunately, you don't own a Zxdiac...</small>
+            <img src={zxdiacRaffle}></img>
+          </>
+        )
       }
     }
   }
@@ -228,6 +266,7 @@ const GameScreen = ({ setGameStarted }) => {
       return (
         <>
           <h2>Purchased a Zxdiac for 1.5 ETH!</h2>
+          <img src={zxdiac}></img>
         </>
       );
     } else if (gameFields.ghxstsAvailable) {
@@ -292,13 +331,20 @@ const StatElement = ({ name, value }) => {
   );
 };
 
-const GameOverScreen = ({ gameFields, setGameStarted, setMovesRemaining }) => {
+const GameOverScreen = ({ gameFields, setGameFields, setMovesRemaining }) => {
   return (
-    <div className={"pxin-game-start-screen"}>
+    <div className={"pxin-game-start-screen"} style={{marginTop: "50px"}}>
       <h1>Game Over</h1>
-      <br></br>
-      <p>Ghxsts Collected: {gameFields.ghxstsCollected}</p>
-      <button class="big-button" onClick={(e) => setMovesRemaining(GAME_MOVES)}>
+      <button class="big-button" onClick={(e) => {
+        setMovesRemaining(GAME_MOVES)
+        setGameFields({
+          ghxstsCollected: 0,
+          zxdiacsCollected: 0,
+          availableEth: 0.0,
+          zxdiacsAvailable: 1,
+          ghxstsAvailable: 2,
+        })
+      } }>
         Play Again?
       </button>
     </div>
