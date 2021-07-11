@@ -11,6 +11,7 @@ import work1 from "../images/work1.png";
 import work2 from "../images/work2.png";
 import work3 from "../images/work3.png";
 import zxdiac from "../images/zxdiac.png";
+import ghxst from "../images/ghxst.png";
 import zxdiacRaffle from "../images/zxdiacRaffle.png";
 
 const GAME_MOVES = 15;
@@ -277,7 +278,8 @@ const GameScreen = ({ setGameStarted }) => {
       }));
       return (<>
             <h2>Purchased a Ghxst for 5 ETH!</h2>
-          </>
+            <img src={ghxst}></img>
+            </>
       );
     }
   }
@@ -333,7 +335,7 @@ const StatElement = ({ name, value }) => {
 
 const GameOverScreen = ({ gameFields, setGameFields, setMovesRemaining }) => {
   return (
-    <div className={"pxin-game-start-screen"} style={{marginTop: "50px"}}>
+    <div className={"pxin-game-start-screen"} style={{marginTop: "50px", color: "white"}}>
       <h1>Game Over</h1>
       <button class="big-button" onClick={(e) => {
         setMovesRemaining(GAME_MOVES)
