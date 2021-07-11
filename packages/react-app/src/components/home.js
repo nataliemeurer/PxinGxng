@@ -54,7 +54,7 @@ const getLoggedInMessage = (walletGhxsts) => {
         <h3>Hi, I'm Gxng Gxng. Let me check out your wallet.</h3>
         {renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdiac, sirxn, demxn, alixn, ghxst)}
         {walletGhxsts.length
-          ? <><br/><small>If you ask me, my favorite in your collection is the {randomGhxstName(walletGhxsts)}.</small></>: <></>}
+          ? <><br/><br/><small>If you ask me, my favorite in your collection is the {randomGhxstName(walletGhxsts)}.</small></>: <></>}
       </div>
     );
   } else {
@@ -73,13 +73,13 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     </>
   } else if (mythicxl) {
     return <>
-      <p>I have read the Zxdiac signs, and I see a Mythicxl in your future.</p>
+      <p>I have read the Zxdiac signs, and I see a Mythxcal in your future.</p>
       <small>
         You have a pretty great collection - a solid
         {walletGhxsts.length} ghxsts...
       </small>
     </>
-  } else if (immxrtal) {
+  }else if (immxrtal) {
     return <>
       <p>That's an absolutely B E A U T I F U L immxrtal you have there.</p>
       <small>
@@ -97,7 +97,7 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     return <>
       <p>The Zxdiacs are my personal favorites. I love yours.</p>
       <small>
-        It's an awesome collection of {walletGhxsts.length} zxdiaxs you have there. Still, maybe time to get a ghxst?
+        It's an awesome collection of {walletGhxsts.length} NFTs from ghxsts you have there. Still, maybe time to get a ghxst?
       </small>
     </>
   } else if (alixn) {
@@ -111,12 +111,12 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     return <>
       <p>Wow, an original Ghxst. It's glorious.</p>
       <small>
-        Have you considered picking up a Demxn or an Alixn? They could set you up for a Mythicxl.
+        Have you considered picking up a Demxn or an Alixn? They could set you up for a         Have you considered picking up a Demxn or an Alixn? They could set you up for a Mythicxl.
       </small>
     </>
   } else {
     return <>
-      <p>It looks like you haven't yet joined the PXIN GXNG just yet. It feels like it might be time?</p>
+      <p>It looks like you haven't joined the PXIN GXNG just yet. It feels like it might be time?</p>
       <small>
         I'd recommend starting with a <a href="https://opensea.io/assets/ghxsts?search[query]=zxdiac">Zxdiac</a>. They're priced lowest and offer a lot of utility.
       </small>
