@@ -57,6 +57,7 @@ const StartScreen = ({ setGameStarted }) => {
 const GameScreen = ({ setGameStarted }) => {
   const [displayContent, setDisplayContent] = useState(null);
   const [moves, setMovesRemaining] = useState(GAME_MOVES);
+  const [loading, setLoading] = useState(false);
   const [gameFields, setGameFields] = useState({
     ghxstsCollected: 0,
     zxdiacsCollected: 0,
@@ -87,9 +88,10 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
-                    setDisplayContent(<div className="loader">Loading</div>)
+                    setLoading(true);
                     setDisplayContent(handleDiscordCheck());
                     setMovesRemaining(moves - 1);
+                    setLoading(false);
                   }}
                 >
                   Check Discord for Drops
@@ -99,9 +101,10 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
-                    setDisplayContent(<div className="loader">Loading</div>)
+                    setLoading(true);
                     setDisplayContent(handleSleep());
                     setMovesRemaining(moves - 1);
+                    setLoading(false);
                   }}
                 >
                   Sleep
@@ -111,9 +114,10 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
-                    setDisplayContent(<div className="loader">Loading</div>)
+                    setLoading(true);
                     setDisplayContent(handleWork(setGameFields));
                     setMovesRemaining(moves - 1);
+                    setLoading(false);
                   }}
                 >
                   Work
@@ -128,8 +132,9 @@ const GameScreen = ({ setGameStarted }) => {
                   }
                   className="big-button"
                   onClick={(ev) => {
-                    setDisplayContent(<div className="loader">Loading</div>)
+                    setLoading(true);
                     setDisplayContent(handleOpenSea(setGameFields));
+                    setLoading(false);
                   }}
                 >
                   Buy on Opensea{" "}
@@ -141,7 +146,9 @@ const GameScreen = ({ setGameStarted }) => {
                 </button>
               </div>
             </div>
-            <div className="display-zone">{displayContent}</div>
+            <div className="display-zone">
+              <div>{loading ? <div className={`loader ${loading ? 'visible' : 'hidden'}`}></div> : displayContent}</div>
+            </div>
           </div>
         </div>
       ) : (
