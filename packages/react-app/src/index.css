@@ -351,3 +351,7 @@ div.card.show div.flap2 {
     height: 5em;
   }
 }
+
+.hidden {
+  display: none;
+}

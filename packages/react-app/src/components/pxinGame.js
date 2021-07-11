@@ -162,45 +162,32 @@ const GameScreen = ({ setGameStarted }) => {
       switch (randomNum) {
         case 1:
           return (
-            <>
-              <h2>
-                Cool cats convo -- Lxn shares his absurdly good cats. Nice cats,
-                but no drop.
-              </h2>
-              <Image src={discord1} alt="discord1" />
-            </>
+            <HeaderImage
+            header={"Cool cats convo -- Lxn shares his absurdly good cats. Nice cats, but no drop."}
+            image={discord1}/>
           );
         case 2:
           return (
-            <>
-              <h2>
-                07CA bought more Ghxsts. Lots of new purchases in the secondary
-                market, but no drop.
-              </h2>
-              <Image src={discord2} alt="discord2" />
-            </>
+            <HeaderImage
+              header={"07CA bought more Ghxsts. Lots of new purchases in the secondary market, but no drop."}
+              image={discord2}/>
           );
         case 3:
           return (
-            <>
-              <h2>
-                Franklin shares his updated spreadsheet. Great content, no drop.
-              </h2>
-              <Image src={discord3} alt="discord3" />
-            </>
+            <HeaderImage
+              header={"Franklin shares his updated spreadsheet. Great content, no drop."}
+              image={discord3}/>
           );
         case 4:
           return (
-            <>
-              <h2>NFT Fiend checks gxs prices. High gas, and no drop.</h2>
-              <Image src={discord4} alt="discord4" />
-            </>
+            <HeaderImage
+              header={"NFT Fiend checks gxs prices. High gas, and no drop."}
+              image={discord4}/>
           );
         case 5:
-          return  <>
-              <h2>BIGDOG drops some hilarious mxmes. No drop still.</h2>
-              <Image src={discord5} alt="discord5" />
-            </>
+          return <HeaderImage
+            header={"BIGDOG drops some hilarious mxmes. No drop still."}
+            image={discord5}/>
       }
     } else {
       // select drop options
@@ -227,13 +214,10 @@ const GameScreen = ({ setGameStarted }) => {
           })
         );
         return (
-          <>
-            <h2>Zxdiac Raffle!</h2>
-            <small>
-              You enter your Zxdiac and...you WIN! You get a Ghxst.
-            </small>
-            <img src={zxdiacRaffle}></img>
-          </>
+          <HeaderImage
+            header={"Zxdiac Raffle!"}
+            description={"You enter your Zxdiac and...you WIN! You get a Ghxst."}
+            image={zxdiacRaffle}/>
         );
       } else if (Math.random() > 0.5) {
         setGameFields(
@@ -242,34 +226,25 @@ const GameScreen = ({ setGameStarted }) => {
           })
         );
         return (
-          <>
-            <h2>Zxdiac Raffle!</h2>
-            <small>
-              You enter your Zxdiac and...Sven O wins! Luckily, Sven is a
-              Zxdiac collector and gifted a Zxdiac to someone for winning.
-              You get it.
-            </small>
-            <img src={zxdiacRaffle}></img>
-          </>
+          <HeaderImage
+            header={"Zxdiac Raffle!"}
+            description={"You enter your Zxdiac and...Sven O wins! Luckily, Sven is a Zxdiac collector and gifted a Zxdiac to someone for winning. You get it."}
+            image={zxdiacRaffle}/>
         );
       } else {
         return (
-          <>
-            <h2>Zxdiac Raffle!</h2>
-            <small>
-              You enter your Zxdiac and...you lose. Better luck next time
-            </small>
-            <img src={zxdiacRaffle}></img>
-          </>
+          <HeaderImage
+            header={"Zxdiac Raffle!"}
+            description={"You enter your Zxdiac and...you lose. Better luck next time."}
+            image={zxdiacRaffle}/>
         );
       }
     }
     return (
-      <>
-        <h2>Zxdiac Raffle!</h2>
-        <small>Unfortunately, you don't own a Zxdiac...</small>
-        <img src={zxdiacRaffle}></img>
-      </>
+      <HeaderImage
+            header={"Zxdiac Raffle!"}
+            description={"Unfortunately, you don't own a Zxdiac..."}
+            image={zxdiacRaffle}/>
     );
   }
 
@@ -277,24 +252,21 @@ const GameScreen = ({ setGameStarted }) => {
     let num = Math.ceil(Math.random() * 3);
     if (num == 1) {
       return (
-        <>
-          <h2>Can't sleep.</h2>
-          <Image src={sleep1} alt="sleep1" />
-        </>
+        <HeaderImage
+          header={"Can't sleep"}
+          image={sleep1}/>
       );
     } else if (num == 2) {
       return (
-        <>
-          <h2>Can't sleep.</h2>
-          <Image src={sleep2} alt="sleep2" />
-        </>
+        <HeaderImage
+          header={"Can't sleep"}
+          image={sleep2}/>
       );
     } else {
       return (
-        <>
-          <h2>Finally fell asleep. Missed a drop.</h2>
-          <Image src={sleep3} alt="sleep3" />
-        </>
+        <HeaderImage
+          header={"Finally fell asleep and missed a drop."}
+          image={sleep3}/>
       );
     }
   }
@@ -323,6 +295,7 @@ const GameScreen = ({ setGameStarted }) => {
         })
       );
       return (
+        
         <>
           <h2>Purchased a Ghxst for 5 ETH!</h2>
           <img src={ghxst}></img>
@@ -340,20 +313,14 @@ const GameScreen = ({ setGameStarted }) => {
         })
       );
       return (
-        <>
-          <h2>You have an unproductive day at work thinking about Ghxsts. +0.5 ETH.</h2>
-          <Image src={work1} alt="work1" />
-        </>
+        <HeaderImage header={"You have an unproductive day at work thinking about Ghxsts. +0.5 ETH."} image={work1}/>
       );
     } else if (num == 2) {
       Object.assign(gameFields, {
         availableEth: gameFields.availableEth + 1,
       });
       return (
-        <>
-          <h2>You have a fairly productive day at work. +1.0 ETH.</h2>
-          <Image src={work2} alt="work2" />
-        </>
+        <HeaderImage header={"You have a fairly productive day at work. +1.0 ETH."} image={work2}/>
       );
     } else {
       setGameFields(
@@ -362,10 +329,7 @@ const GameScreen = ({ setGameStarted }) => {
         })
       );
       return (
-        <>
-          <h2>You have a wildly productive day at work. +1.5 ETH.</h2>
-          <Image src={work3} alt="work3" />
-        </>
+        <HeaderImage header={"You have a wildly productive day at work. +1.5 ETH."} image={work3}/>
       );
     }
   }
@@ -379,6 +343,21 @@ const StatElement = ({ name, value }) => {
     </div>
   );
 };
+
+const HeaderImage = ({header, image, description}) => {
+  const [loading, setLoading] = useState(true);
+  return (
+    <>
+        <div className={`loader ${loading ? 'visible' : 'hidden'}`}></div>
+        <div className={loading ? 'hidden' : 'visible'}>
+          <h2>{header}</h2>
+          {description ? <small>{description}</small> : ""}
+          <div className={`loader ${loading ? 'visible' : 'hidden'}`}></div>
+          <img src={image} onLoad={() => setLoading(false)}></img>
+        </div>
+      </>
+  )
+}
 
 const OfferChallenge = ({ setGameFields, gameFields }) => {
     let [successfulOffer, setSuccess] = useState(false);
