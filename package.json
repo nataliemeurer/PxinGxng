@@ -9,6 +9,8 @@
   ],
   "private": true,
   "scripts": {
+    "start": "node index.js",
+    "build": "yarn workspace @project/react-app build", 
     "subgraph:auth": "yarn workspace @project/subgraph auth",
     "subgraph:codegen": "yarn workspace @project/subgraph codegen",
     "subgraph:build": "yarn workspace @project/subgraph build",
@@ -27,5 +29,8 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
