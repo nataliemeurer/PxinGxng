@@ -1,19 +1,25 @@
+@import "./styles/pxinGame.css";
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
 }
 
+body a {
+  color: #e1392e;
+}
+
 body p {
-  text-align: center;
+  text-align: cen ter;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -27,53 +33,56 @@ code {
   text-align: center;
   margin-top: -40px;
   max-width: 70%;
+  /* background-color: rgb(224,51,35, .3); */
+  margin: 0px auto;
+  padding: 5px 10px 30px 10px;
+  border-radius: 15px;
 }
 
 .main-nav {
-	margin-top: 5px;
-
+  margin-top: 5px;
 }
 .logo img,
 .main-nav button {
-	padding: 10px 15px;
+  padding: 10px 15px;
   text-align: center;
   min-width: 175px;
 }
 
-.main-nav  {
-	color: #34495e;
-	font-size: .88em;
+.main-nav {
+  color: #34495e;
+  font-size: 0.88em;
 }
 
 .header {
-	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid #a2a2a2;
-	background-color: #f4f4f4;
-	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border: 1px solid #a2a2a2;
+  background-color: #f4f4f4;
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 @media (min-width: 769px) {
-	.header,
-	.main-nav {
-		display: flex;
-	}
-	.header {
-		flex-direction: column;
-		align-items: center;
-	}
+  .header,
+  .main-nav {
+    display: flex;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (min-width: 1025px) {
-	.header {
-		flex-direction: row;
-		justify-content: space-between;
-	}
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .login-options-container {
@@ -82,6 +91,7 @@ code {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .login-options-container div {
@@ -97,6 +107,10 @@ code {
 
 div.vertical-line-left {
   border-left: 1px solid #7f8c8d;
+}
+
+div.vertical-line-right {
+  border-right: 1px solid #7f8c8d;
 }
 
 .ghxsts-display {
@@ -171,7 +185,7 @@ div.card .card__image-holder {
 }
 
 div.card div.card-title {
-  background: #EBF1F5;
+  background: #ebf1f5;
   padding: 6px 15px 10px;
   position: relative;
   z-index: 0;
@@ -187,7 +201,7 @@ div.card div.card-title a.toggle-info {
   width: 32px;
 }
 div.card div.card-title a.toggle-info span {
-  background: #EBF1F5;
+  background: #ebf1f5;
   display: block;
   height: 2px;
   position: absolute;
@@ -227,7 +241,7 @@ div.card div.card-actions {
   text-align: center;
 }
 div.card div.card-flap {
-  background: #EBF1F5;
+  background: #ebf1f5;
   position: absolute;
   width: 100%;
   transform-origin: top;

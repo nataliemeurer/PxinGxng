@@ -11,10 +11,7 @@ const Home = ({ provider, loadWeb3Modal, logoutOfWeb3Modal, walletGhxsts }) => {
         {walletGhxsts ? (
           getLoggedInMessage(walletGhxsts)
         ) : provider ? (
-          <p>
-            We're glad to have you here, but it looks like you don't own any
-            ghxsts. Check out more information on the collection.
-          </p>
+          <span></span>
         ) : (
           <LoginOptions
             provider={provider}
@@ -54,7 +51,7 @@ const getLoggedInMessage = (walletGhxsts) => {
     const gxd = mythicxl && immxrtal;
     return (
       <div className="welcome-widget">
-        <h3>Welcome Back</h3>
+        <h3>Hi, I'm Gxng Gxng. Let me check out your wallet.</h3>
         {renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdiac, sirxn, demxn, alixn, ghxst)}
         {walletGhxsts.length
           ? <><br/><small>If you ask me, my favorite in your collection is the {randomGhxstName(walletGhxsts)}.</small></>: <></>}
@@ -68,7 +65,7 @@ const getLoggedInMessage = (walletGhxsts) => {
 function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdiac, sirxn, demxn, alixn, ghxst) {
   if (gxd) {
     return <>
-      <p>It looks like you're on track to a GXD!?! WOW.</p>
+      <p>It looks like you're on track to receive a GXD!?! WOW.</p>
       <small>
         You must have endured a lot of pxin to get those{" "}
         {walletGhxsts.length} ghxsts... Let's just call you PXIN CONQUEROR from here on out.
@@ -76,7 +73,7 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     </>
   } else if (mythicxl) {
     return <>
-      <p>I have read the zxdiac signs, and I see a Mythicxl in your future.</p>
+      <p>I have read the Zxdiac signs, and I see a Mythicxl in your future.</p>
       <small>
         You have a pretty great collection - a solid
         {walletGhxsts.length} ghxsts...
@@ -86,7 +83,7 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     return <>
       <p>That's an absolutely B E A U T I F U L immxrtal you have there.</p>
       <small>
-        I'll make you a special deal. One pickle for your {walletGhxsts.length} ghxsts (kidding, kidding)?
+        I'll make you a special deal. One pickle for your {walletGhxsts.length} ghxsts. (kidding, kidding)
       </small>
     </>
   } else if (demxn) {
@@ -112,7 +109,7 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     </>
   } else if (ghxst) {
     return <>
-      <p>Wow, a Ghxst from the original 101. It's glorious.</p>
+      <p>Wow, an original Ghxst. It's glorious.</p>
       <small>
         Have you considered picking up a Demxn or an Alixn? They could set you up for a Mythicxl.
       </small>
@@ -121,7 +118,7 @@ function renderConditionalGreetings(walletGhxsts, gxd, mythicxl, immxrtal, zxdia
     return <>
       <p>It looks like you haven't yet joined the PXIN GXNG just yet. It feels like it might be time?</p>
       <small>
-        I'd recommend starting with a <a href="https://opensea.io/assets/ghxsts?search[query]=zxdiac">Zxdiac</a>. They're priced lowest and offer the most utility.
+        I'd recommend starting with a <a href="https://opensea.io/assets/ghxsts?search[query]=zxdiac">Zxdiac</a>. They're priced lowest and offer a lot of utility.
       </small>
     </>
   }

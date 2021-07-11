@@ -27,14 +27,6 @@ export const Image = styled.img`
   pointer-events: none;
 `;
 
-export const Link = styled.a.attrs({
-  target: "_blank",
-  rel: "noopener noreferrer",
-})`
-  color: #61dafb;
-  margin-top: 10px;
-`;
-
 export const Button = styled.button`
   background-color: white;
   border: none;
