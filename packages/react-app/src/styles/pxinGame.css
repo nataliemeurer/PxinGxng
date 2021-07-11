@@ -54,6 +54,24 @@
     width: 100%;
 }
 
+.offer-input {
+    margin: 0px auto;
+    display: block;
+    padding: 20px;
+}
+
+.offer-input button {
+    height: 40px;
+    border-radius: 5px;
+}
+
+.offer-input input {
+    height: 35px;
+    font-size: 18px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
 .big-button {
     width: 100%;
 }

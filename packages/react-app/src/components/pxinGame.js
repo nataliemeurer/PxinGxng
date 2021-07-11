@@ -7,12 +7,15 @@ import discord1 from "../images/discord1.png";
 import discord2 from "../images/discord2.png";
 import discord3 from "../images/discord3.png";
 import discord4 from "../images/discord4.png";
+import discord5 from "../images/discord5.png";
 import work1 from "../images/work1.png";
 import work2 from "../images/work2.png";
 import work3 from "../images/work3.png";
 import zxdiac from "../images/zxdiac.png";
 import ghxst from "../images/ghxst.png";
 import zxdiacRaffle from "../images/zxdiacRaffle.png";
+import offer from "../images/offer.png";
+import offer2 from "../images/offer2.png";
 
 const GAME_MOVES = 15;
 
@@ -84,6 +87,7 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
+                    setDisplayContent(<div className="loader">Loading</div>)
                     setDisplayContent(handleDiscordCheck());
                     setMovesRemaining(moves - 1);
                   }}
@@ -95,6 +99,7 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
+                    setDisplayContent(<div className="loader">Loading</div>)
                     setDisplayContent(handleSleep());
                     setMovesRemaining(moves - 1);
                   }}
@@ -106,6 +111,7 @@ const GameScreen = ({ setGameStarted }) => {
                 <button
                   className="big-button"
                   onClick={(ev) => {
+                    setDisplayContent(<div className="loader">Loading</div>)
                     setDisplayContent(handleWork(setGameFields));
                     setMovesRemaining(moves - 1);
                   }}
@@ -150,9 +156,9 @@ const GameScreen = ({ setGameStarted }) => {
   function handleDiscordCheck() {
     // we assume that it's a 90 percent
     // likelihood of it being a standard convo
-    // 10% chance it's a drop.
+    // 20% chance it's a drop.
     if (Math.random() > 0.2) {
-      const randomNum = Math.ceil(Math.random() * 4);
+      const randomNum = Math.ceil(Math.random() * 5);
       switch (randomNum) {
         case 1:
           return (
@@ -190,66 +196,81 @@ const GameScreen = ({ setGameStarted }) => {
               <Image src={discord4} alt="discord4" />
             </>
           );
+        case 5:
+          return  <>
+              <h2>BIGDOG drops some hilarious mxmes. No drop still.</h2>
+              <Image src={discord5} alt="discord5" />
+            </>
       }
     } else {
       // select drop options
 
-      const randomNum = Math.ceil(Math.random());
+      const randomNum = Math.ceil(Math.random() * 2);
       if (randomNum == 1) {
-        if (gameFields.zxdiacsCollected) {
-          if (Math.random() > 0.7) {
-            setGameFields(
-              Object.assign(gameFields, {
-                ghxstsCollected: gameFields.ghxstsCollected + 1,
-              })
-            );
-            return (
-              <>
-                <h2>Zxdiac Raffle!</h2>
-                <small>
-                  You enter your Zxdiac and...you WIN! You get a Ghxst.
-                </small>
-                <img src={zxdiacRaffle}></img>
-              </>
-            );
-          } else if (Math.random() > 0.5) {
-            setGameFields(
-              Object.assign(gameFields, {
-                zxdiacsCollected: gameFields.zxdiacsCollected + 1,
-              })
-            );
-            return (
-              <>
-                <h2>Zxdiac Raffle!</h2>
-                <small>
-                  You enter your Zxdiac and...Sven O wins! Luckily, Sven is a
-                  Zxdiac collector and gifted a Zxdiac to someone for winning.
-                  You get it.
-                </small>
-                <img src={zxdiacRaffle}></img>
-              </>
-            );
-          } else {
-            return (
-              <>
-                <h2>Zxdiac Raffle!</h2>
-                <small>
-                  You enter your Zxdiac and...you lose. Better luck next time
-                </small>
-                <img src={zxdiacRaffle}></img>
-              </>
-            );
-          }
-        }
+        return getZxdiacRaffle();
+      } else {
+        return offerChallenge();
+      }
+    }
+  }
+
+  function offerChallenge() {
+    return <OfferChallenge setGameFields={setGameStarted} gameFields={gameFields} />
+  }
+
+  function getZxdiacRaffle() {
+    if (gameFields.zxdiacsCollected) {
+      if (Math.random() > 0.7) {
+        setGameFields(
+          Object.assign(gameFields, {
+            ghxstsCollected: gameFields.ghxstsCollected + 1,
+          })
+        );
         return (
           <>
             <h2>Zxdiac Raffle!</h2>
-            <small>Unfortunately, you don't own a Zxdiac...</small>
+            <small>
+              You enter your Zxdiac and...you WIN! You get a Ghxst.
+            </small>
+            <img src={zxdiacRaffle}></img>
+          </>
+        );
+      } else if (Math.random() > 0.5) {
+        setGameFields(
+          Object.assign(gameFields, {
+            zxdiacsCollected: gameFields.zxdiacsCollected + 1,
+          })
+        );
+        return (
+          <>
+            <h2>Zxdiac Raffle!</h2>
+            <small>
+              You enter your Zxdiac and...Sven O wins! Luckily, Sven is a
+              Zxdiac collector and gifted a Zxdiac to someone for winning.
+              You get it.
+            </small>
+            <img src={zxdiacRaffle}></img>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <h2>Zxdiac Raffle!</h2>
+            <small>
+              You enter your Zxdiac and...you lose. Better luck next time
+            </small>
             <img src={zxdiacRaffle}></img>
           </>
         );
       }
     }
+    return (
+      <>
+        <h2>Zxdiac Raffle!</h2>
+        <small>Unfortunately, you don't own a Zxdiac...</small>
+        <img src={zxdiacRaffle}></img>
+      </>
+    );
   }
 
   function handleSleep() {
@@ -320,7 +341,7 @@ const GameScreen = ({ setGameStarted }) => {
       );
       return (
         <>
-          <h2>You have an unproductive day at work. +0.5 ETH.</h2>
+          <h2>You have an unproductive day at work thinking about Ghxsts. +0.5 ETH.</h2>
           <Image src={work1} alt="work1" />
         </>
       );
@@ -358,6 +379,55 @@ const StatElement = ({ name, value }) => {
     </div>
   );
 };
+
+const OfferChallenge = ({ setGameFields, gameFields }) => {
+    let [successfulOffer, setSuccess] = useState(false);
+    let [failedOffer, setFailed] = useState(false);
+    let [offerText, setOffer] = useState("");
+    const [timer, setTimeLeft] = useState(5);
+
+    // offer1 -> 0.68, offer2 -> >.05
+    const [offerOption, setOfferOption] = useState(Math.ceil(Math.random() * 2));
+
+    useEffect(() => {
+      const timerFunc = setTimeout(() => {
+        if (timer > 0 && !successfulOffer) {
+          setTimeLeft(timer - 1);
+        }
+      }, 1000);
+
+      // Clear timeout if the component is unmounted
+      return () => clearTimeout(timer);
+    });
+    return (
+      <>
+        <img src={offerOption === 1 ? offer : offer2}/>
+        <h2>Time Remaining: {timer}</h2>
+        <div className="offer-input">
+          <input type="text" onChange={ev => setOffer(ev.target.value)}/>
+          <button disabled={timer <= 0 || successfulOffer } onClick={(ev) => {
+            setFailed(false)
+            if (timer > 0) {
+              if ((offerOption == 1 && parseFloat(offerText) == 0.68) || (offerOption == 2 && parseFloat(offerText) > 0.05)) {
+                setGameFields(
+                  Object.assign(gameFields, {
+                    ghxstsCollected: gameFields.ghxstsCollected + 1,
+                  })
+                );
+                setSuccess(true)
+              } else {
+                setFailed(true)
+              }
+            }
+            
+          }}>Submit</button>
+        </div>
+        <br></br>
+        {failedOffer ? <small>Wrong amount. Better luck next time.</small> :<></>}
+        {successfulOffer ? <small>Got it! +1 Ghxst.</small> : <></>}
+        {timer === 0 ? <small>Out of time!</small> : <></>}
+      </>);
+}
 
 const GameOverScreen = ({ gameFields, setGameFields, setMovesRemaining }) => {
   return (
