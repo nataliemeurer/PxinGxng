@@ -39,7 +39,8 @@ const StartScreen = ({ setGameStarted }) => {
           buying them and winning drops.
         </p>
         <p style={{ textAlign: "left", fontStyle: "italic" }}>
-          <strong>Warning</strong>: you might not get much sleep, and you'll endure a lot of pxin.
+          <strong>Warning</strong>: you might not get much sleep, and you'll
+          endure a lot of pxin.
         </p>
         <br></br>
         <button class="big-button" onClick={(e) => setGameStarted(true)}>
@@ -125,7 +126,9 @@ const GameScreen = ({ setGameStarted }) => {
                   }}
                 >
                   Buy on Opensea{" "}
-                  {((gameFields.availableEth >= 1.5 && gameFields.zxdiacsAvailable) || (gameFields.availableEth >= 5 && gameFields.ghxstsAvailable))
+                  {(gameFields.availableEth >= 1.5 &&
+                    gameFields.zxdiacsAvailable) ||
+                  (gameFields.availableEth >= 5 && gameFields.ghxstsAvailable)
                     ? ""
                     : "(insufficient funds)"}
                 </button>
@@ -190,43 +193,61 @@ const GameScreen = ({ setGameStarted }) => {
       }
     } else {
       // select drop options
-      
+
       const randomNum = Math.ceil(Math.random());
       if (randomNum == 1) {
         if (gameFields.zxdiacsCollected) {
-          if (Math.random() > .7) {
-            setGameFields(Object.assign(gameFields, {
-              ghxstsCollected: gameFields.ghxstsCollected + 1,
-            }));
-            return (<>
-              <h2>Zxdiac Raffle!</h2>
-              <small>You enter your Zxdiac and...you WIN! You get a Ghxst.</small>
-              <img src={zxdiacRaffle}></img>
-            </>
-          )
-          } else if (Math.random() > .5) {
-            setGameFields(Object.assign(gameFields, {
-              zxdiacsCollected: gameFields.zxdiacsCollected + 1,
-            }));
-            return (<>
-              <h2>Zxdiac Raffle!</h2>
-              <small>You enter your Zxdiac and...Sven O wins! Luckily, Sven is a Zxdiac collector and gifted a Zxdiac to someone for winning. You get it.</small>
-              <img src={zxdiacRaffle}></img>
-            </>)
+          if (Math.random() > 0.7) {
+            setGameFields(
+              Object.assign(gameFields, {
+                ghxstsCollected: gameFields.ghxstsCollected + 1,
+              })
+            );
+            return (
+              <>
+                <h2>Zxdiac Raffle!</h2>
+                <small>
+                  You enter your Zxdiac and...you WIN! You get a Ghxst.
+                </small>
+                <img src={zxdiacRaffle}></img>
+              </>
+            );
+          } else if (Math.random() > 0.5) {
+            setGameFields(
+              Object.assign(gameFields, {
+                zxdiacsCollected: gameFields.zxdiacsCollected + 1,
+              })
+            );
+            return (
+              <>
+                <h2>Zxdiac Raffle!</h2>
+                <small>
+                  You enter your Zxdiac and...Sven O wins! Luckily, Sven is a
+                  Zxdiac collector and gifted a Zxdiac to someone for winning.
+                  You get it.
+                </small>
+                <img src={zxdiacRaffle}></img>
+              </>
+            );
           } else {
-            return (<>
-              <h2>Zxdiac Raffle!</h2>
-              <small>You enter your Zxdiac and...you lose. Better luck next time</small>
-              <img src={zxdiacRaffle}></img>
-            </>)
+            return (
+              <>
+                <h2>Zxdiac Raffle!</h2>
+                <small>
+                  You enter your Zxdiac and...you lose. Better luck next time
+                </small>
+                <img src={zxdiacRaffle}></img>
+              </>
+            );
           }
         }
-        return (<>
+        return (
+          <>
             <h2>Zxdiac Raffle!</h2>
             <small>Unfortunately, you don't own a Zxdiac...</small>
             <img src={zxdiacRaffle}></img>
           </>
-        )
+        );
       }
     }
   }
@@ -259,11 +280,13 @@ const GameScreen = ({ setGameStarted }) => {
 
   function handleOpenSea() {
     if (gameFields.zxdiacsAvailable) {
-      setGameFields(Object.assign(gameFields, {
-        zxdiacsAvailable: gameFields.zxdiacsAvailable - 1,
-        zxdiacsCollected: gameFields.zxdiacsCollected + 1,
-        availableEth: gameFields.availableEth - 1.5,
-      }));
+      setGameFields(
+        Object.assign(gameFields, {
+          zxdiacsAvailable: gameFields.zxdiacsAvailable - 1,
+          zxdiacsCollected: gameFields.zxdiacsCollected + 1,
+          availableEth: gameFields.availableEth - 1.5,
+        })
+      );
       return (
         <>
           <h2>Purchased a Zxdiac for 1.5 ETH!</h2>
@@ -271,15 +294,18 @@ const GameScreen = ({ setGameStarted }) => {
         </>
       );
     } else if (gameFields.ghxstsAvailable) {
-      setGameFields(Object.assign(gameFields, {
-        ghxstsAvailable: gameFields.ghxstsAvailable - 1,
-        ghxstsCollected: gameFields.ghxstsCollected + 1,
-        availableEth: gameFields.availableEth - 5,
-      }));
-      return (<>
-            <h2>Purchased a Ghxst for 5 ETH!</h2>
-            <img src={ghxst}></img>
-            </>
+      setGameFields(
+        Object.assign(gameFields, {
+          ghxstsAvailable: gameFields.ghxstsAvailable - 1,
+          ghxstsCollected: gameFields.ghxstsCollected + 1,
+          availableEth: gameFields.availableEth - 5,
+        })
+      );
+      return (
+        <>
+          <h2>Purchased a Ghxst for 5 ETH!</h2>
+          <img src={ghxst}></img>
+        </>
       );
     }
   }
@@ -335,18 +361,34 @@ const StatElement = ({ name, value }) => {
 
 const GameOverScreen = ({ gameFields, setGameFields, setMovesRemaining }) => {
   return (
-    <div className={"pxin-game-start-screen"} style={{marginTop: "50px", color: "white"}}>
+    <div
+      className={"pxin-game-start-screen"}
+      style={{ marginTop: "50px", color: "white", padding: "30px"}}
+    >
       <h1>Game Over</h1>
-      <button class="big-button" onClick={(e) => {
-        setMovesRemaining(GAME_MOVES)
-        setGameFields({
-          ghxstsCollected: 0,
-          zxdiacsCollected: 0,
-          availableEth: 0.0,
-          zxdiacsAvailable: 1,
-          ghxstsAvailable: 2,
-        })
-      } }>
+      <div className="game-over-score">
+        <StatElement
+          name="Zxdiacs Collected"
+          value={gameFields.zxdiacsCollected}
+        />
+        <StatElement
+          name="Ghxsts Collected"
+          value={gameFields.ghxstsCollected}
+        />
+      </div>
+      <button
+        class="big-button"
+        onClick={(e) => {
+          setMovesRemaining(GAME_MOVES);
+          setGameFields({
+            ghxstsCollected: 0,
+            zxdiacsCollected: 0,
+            availableEth: 0.0,
+            zxdiacsAvailable: 1,
+            ghxstsAvailable: 2,
+          });
+        }}
+      >
         Play Again?
       </button>
     </div>
