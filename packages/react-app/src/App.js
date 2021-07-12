@@ -62,7 +62,7 @@ function App() {
           </Route>
         </Switch>
         <footer style={{margin: "0px auto", width: "100%"}}>
-          <p style={{textAlign: "center", color: "#f4f4f4", padding: "20px", paddingTop: "-20px", fontSize: "16x"}}>Inspired by, but not affiliated with, the Ghxsts and PXIN GXNG NFT projects.</p>
+          <p style={{fontStyle: "italic", textAlign: "center", color: "#f4f4f4", padding: "20px", paddingTop: "-20px", fontSize: "16x"}}>Inspired by, but not affiliated with, the Ghxsts and PXIN GXNG NFT projects.</p>
         </footer>
     </Router>
     
