@@ -61,6 +61,9 @@ function App() {
             <Home provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} walletGhxsts={walletGhxsts}/>
           </Route>
         </Switch>
+        <footer style={{margin: "0px auto", width: "100%"}}>
+          <p style={{textAlign: "center", color: "#f4f4f4", padding: "20px", paddingTop: "-20px", fontSize: "14px"}}>Inspired by, but not affiliated with, the Ghxsts and PXIN GXNG NFT projects.</p>
+        </footer>
     </Router>
     
   );
